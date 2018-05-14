@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <style>
+            .image {
+                width: 50%;
+            }
+        </style>
+        <script>
+            function run(){
+                $("body").append("<br><center><div class='well'><img class='image' src='http://thecatapi.com/api/images/get?format=src&type=gif'></div></center>");
+            }
+            function stop(){
+                location.reload();
+            }
+        </script>
+    </head>
+    <body>
+        <center>
+        <a onclick="run()" class="btn btn-outline-secondary">Cat</a>
+        <a onclick="stop()" class="btn btn-outline-secondary">No Cat</a>
+        </center>
+    </body>
+</html>

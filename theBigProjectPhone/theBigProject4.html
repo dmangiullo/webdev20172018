@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed"/>
+        <script src="https://dmangiullo.github.io/memes/Untitled1.js"></script>
+        <style>
+            #body {
+                background-color: #80E3F5;
+            }
+            #timer {
+                text-align: center;
+                color: #3c4858;
+                font-family: "Ubuntu Condensed";
+            }
+            #time {
+                text-align: center;
+                color: #3c4858;
+                font-family: "Ubuntu Condensed";
+                font-size: 20px;
+            }
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 15%;
+            }
+            #button {
+                background-color: #E4F4FF;
+                color: grey;
+            }
+            #restart {
+                background-color: #E4F4FF;
+                color: grey;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $("#timer").hide();
+                $("#time").hide();
+                $("#restart").hide();
+            });
+            function showhide(){
+                $("#button").fadeOut();
+                $("#timer").fadeIn();
+                $("#time").show();
+                $("#image").fadeOut();
+                $("#image2").fadeOut();
+                read();
+                setInterval(timer, 1000);
+            }
+            var i=parseInt((parseInt(readCookie('page1'))+parseInt(readCookie('page2'))+parseInt(readCookie('page3')))/4);
+            if (readCookie('page3')==2.5 && i>=5){
+                i=5;
+            } else if (readCookie('page3')==12.5 && i>=10){
+                i=10;
+            } else if (readCookie('page3')==17.5 && i>=15){
+                i=15;
+            }
+            var time=i*60;
+            function timer(){
+                $("#time").empty();
+                $("#time").append(time+" seconds");
+                if (time==0){
+                    time=time;
+                    $("#restart").show();
+                } else {
+                    time--;
+                }
+            }
+            function read(){
+                if (readCookie('page3v2')==0){
+                    $("#audio").append("<center><audio controls><source src='whitenoise1.mp3' type='audio/mpeg'></audio></center>");
+                } else if (readCookie('page3v2')==1){
+                    $("#audio").append("<center><audio controls><source src='ocean.mp3' type='audio/mpeg'></audio></center>");
+                } else if (readCookie('page3v2')==2){
+                    $("#audio").append("<center><audio controls><source src='rain2.mp3' type='audio/mpeg'></audio></center>");
+                } else {
+                    $("#audio").empty();
+                }
+            }
+        </script>
+    </head>
+    <body id="body">
+    <a class="btn btn-outline-secondary" href="theBigProject3v2.html">Back</a>
+    <h2 id="timer">Time Remaining:</h2>
+    <br>
+    <p id="time"></p>
+    <center><a id="restart" href="theBigProjectTitle.html" class="btn">Meditate Again</a></center>
+    <center><a id="button" onclick="showhide()" class="btn">Start Meditating</a></center>
+    <br>
+    <div id="audio"></div>
+    <div id="image"><img src="suitcase.png" style="float:left;" alt="Mountain View"></div>
+    <div id="image2"><img src="ticket.png" style="float:right;" alt="Mountain View"></div>  
+    </body>
+</html>
