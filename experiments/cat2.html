@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <style>
+        #catimage {
+            height: 75%;
+        }
+
+        #dogimage {
+            height: 75%;
+        }
+    </style>
+    <script>
+        function catAppend() {
+            $("#catGif").append("<center><div class='well'><img id='catimage' src='http://thecatapi.com/api/images/get?format=src&type=gif'></div></center>");
+        }
+
+        function dogAppend() {
+            $.ajax({
+                url: 'https://randomfox.ca/floof/',
+                success: function(result) {
+                    //$("#dogPic").append("<br><center><div class='well'><img id='dogimage' src='" + result['message'] + "'></div></center>")
+                }
+            });
+        }
+
+        function chuckAppend() {
+            $.ajax({
+                url: 'https://ron-swanson-quotes.herokuapp.com/v2/quotes',
+                success: function(result) {
+                    $("#ronJoke").append('<center><div class="well"><p>"' + result[0] + '" ' +'- Ron Swanson' + "</p></div></center>");
+
+                }
+            });
+        }
+        
+        function jokeAppend() {
+            $.ajax({
+                url: 'https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke',
+                success: function(result) {
+                    $('#joke').append('<center><p>' + result['setup'] + '</p><br><p>' + result['punchline'] + '</p></center>');
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <a id="catbtn" onclick="catAppend()" class="btn btn-outline-warning" data-toggle="modal" data-target="#catModal">Cat Gif</a>
+        <a id="dogbtn" onclick="dogAppend()" class="btn btn-outline-primary" data-toggle="modal" data-target="#dogModal">Dog Picture</a>
+        <a id="jokebtn" onclick="jokeAppend()" class="btn btn-outline-danger" data-toggle="modal" data-target="#jokeModal">Joke</a>
+        <a id="ronbtn" onclick="chuckAppend()" class="btn btn-outline-success" data-toggle="modal" data-target="#ronModal">Ron Quote</a>
+    
+    </center>
+    <div class="modal" id="catModal">
+        <div class="model-dialog">
+            <div class="modal-content">
+                <div id="catGif" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" onclick="location.reload()" data-dismiss="modal">&times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="dogModal">
+        <div class="model-dialog">
+            <div class="modal-content">
+                <div id="dogPic" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" onclick="location.reload()" data-dismiss="modal">&times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="ronModal">
+        <div class="model-dialog">
+            <div class="modal-content">
+                <div id="ronJoke" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" onclick="location.reload()" data-dismiss="modal">&times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="jokeModal">
+        <div class="model-dialog">
+            <div class="modal-content">
+                <div id="joke" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" onclick="location.reload()" data-dismiss="modal">&times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

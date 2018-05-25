@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script src="https://dmangiullo.github.io/memes/Untitled1.js"></script>
+        <style>
+            #calcBody {
+                width: 50%;
+            }
+            #output {
+                text-align: right;
+            }
+        </style>
+        <script>
+            function answer(){
+                if (readCookie('math')=='plus'){
+                    console.log(parseInt(readCookie('num')));
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <center><div id="calcBody" class="well">
+        <h1 id="output"></h1>
+            <div class="row">
+                <a class="btn btn-primary col-sm-3" onclick="$('#output').empty(), eraseCookie('num')">Clear</a>
+                <a class="btn btn-primary col-sm-3">.</a>
+                <a class="btn btn-primary col-sm-3">&radic;</a>
+                <a class="btn btn-primary col-sm-3">&times;</a>
+            </div>
+            <div class="row">
+                <a class="btn btn-primary col-sm-3" onclick="$('#output').append('1'), createCookie('num', 1, 0)">1</a>
+                <a class="btn btn-primary col-sm-3">2</a>
+                <a class="btn btn-primary col-sm-3">3</a>
+                <a class="btn btn-primary col-sm-3">&divide;</a>
+            </div>
+            <div class="row">
+                <a class="btn btn-primary col-sm-3">4</a>
+                <a class="btn btn-primary col-sm-3">5</a>
+                <a class="btn btn-primary col-sm-3">6</a>
+                <a class="btn btn-primary col-sm-3" onclick="$('#output').append('+'), createCookie('math', 'plus', 0)">&plus;</a>
+            </div>
+            <div class="row">
+                <a class="btn btn-primary col-sm-3">7</a>
+                <a class="btn btn-primary col-sm-3">8</a>
+                <a class="btn btn-primary col-sm-3">9</a>
+                <a class="btn btn-primary col-sm-3">&minus;</a>
+            </div>
+            <div class="row">
+                <a class="btn btn-primary col-sm-6">0</a>
+                <a class="btn btn-primary col-sm-6" onclick="answer()">&equals;</a>
+            </div>
+        </div></center>
+    </body>
+</html>

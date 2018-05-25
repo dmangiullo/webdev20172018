@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script>
+            function compAppend(){
+                var comps = [
+                        "somp1",
+                        "comp2",
+                        "comp3"
+                    ];
+                var num = parseInt(Math.random()*3);
+                $("#compHolder").append("<center>" + comps[num] + "</center>");
+            }
+            function songAppend(){
+                var songs = [
+                    'Everyday is your day, listen to "Everyday" by Logic <3',
+                    'song2',
+                    'song3'
+                ];
+                var num = parseInt(Math.random()*3);
+                $("#songHolder").append("<center>" + songs[num] + "</center>")
+            }
+            function motivAppend(){
+                var motivs = [
+                    "yay1",
+                    "yay2",
+                    "yay3"
+                ];
+                var num = parseInt(Math.random()*3);
+                $("#motivHolder").append("<center>" + motivs[num] + "</center>")
+            }
+        </script>
+    </head>
+    <body>
+        <center>
+        <button class="btn btn-danger" onclick="compAppend()" data-toggle="modal" data-target="#compModal">Compliment</button>
+        <button class="btn btn-info" onclick="motivAppend()" data-toggle="modal" data-target="#motivModal">Motivation</button>
+        <button class="btn btn-success" onclick="songAppend()" data-toggle="modal" data-target="#songModal">Song</button>
+        </center>
+        
+        <div class="modal" id="compModal">
+            <div class="model-dialog">
+                <div class="modal-content">
+                    <div id="compHolder" class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" onclick="location.reload()" data-dismiss="modal">&times;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="motivModal">
+            <div class="model-dialog">
+                <div class="modal-content">
+                    <div id="motivHolder" class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" onclick="location.reload()" data-dismiss="modal">&times;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="songModal">
+            <div class="model-dialog">
+                <div class="modal-content">
+                    <div id="songHolder" class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" onclick="location.reload()" data-dismiss="modal">&times;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
